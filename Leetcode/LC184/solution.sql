@@ -1,0 +1,2 @@
+SELECT Department, Employee, Salary
+FROM (SELECT Department.Name as Department, Employee.Name as Employee, Salary, RANK() OVER(partition by Department.Name order by salary desc) AS ranking FROM Employee LEFT JOIN Department ON Employee.DepartmentId=Department.Id) tab2 WHERE ranking = 1
