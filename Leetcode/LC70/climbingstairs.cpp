@@ -1,24 +1,29 @@
 #include <iostream>
 using namespace std;
-int result[46];
-int climbStairs(int n)
+
+class Solution
 {
-    if (n < 2)
-        return 1;
-    if (result[n] != 0)
-        return result[n];
-    int num = climbStairs(n - 1) + climbStairs(n - 2);
-    result[n] = num;
-    return num;
-}
-int climbStairs2(int n)
+public:
+    int climbStairs(int n)
+    {
+        if (n < 2)
+            return 1;
+        return climbStairs(n - 1) + climbStairs(n - 2);
+    }
+};
+
+class Solution
 {
-    if (n < 2)
-        return 1;
-    return climbStairs2(n - 1) + climbStairs2(n - 2);
-}
-int main()
-{
-    cout << climbStairs(5) << endl;
-    cout << climbStairs2(5) << endl;
-}
+public:
+    int result[46];
+    int climbStairs(int n)
+    {
+        if (n < 2)
+            return 1;
+        if (result[n] != 0)
+            return result[n];
+        int num = climbStairs(n - 1) + climbStairs(n - 2);
+        result[n] = num;
+        return num;
+    }
+};
