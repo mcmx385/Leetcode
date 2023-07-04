@@ -1,3 +1,7 @@
+from typing import List
+from functools import lru_cache
+
+
 class Solution:
     def jump(self, nums: List[int]) -> int:
         n = len(nums)
@@ -44,49 +48,58 @@ class Solution:
 
 
 class Solution:
-    def helper(self, start):
-        print(start)
-        if start == self.n - 1:
+    def helper(self, nums, start):
+        if start >= len(nums) - 1:
             return 0
-        elif start > self.n - 1:
+        if nums[start] <= 0:
             return float("inf")
-        print("going to", start + 1, start + self.nums[start])
-        if start + 1 < self.n:
-            once = self.helper(start + 1) + 1
-            print("got once", once)
-        else:
-            once = float("inf")
-        if start + self.nums[start] < self.n:
-            num = self.helper(start + self.nums[start]) + 1
-            print("got num", num)
-        else:
-            num = float("inf")
-        return min(once, num)
+        once = self.helper(nums, start + 1)
+        for i in range(start + 1, start + nums[start] + 1):
+            once = min(once, self.helper(nums, i))
+        return 1 + once
 
     def jump(self, nums: List[int]) -> int:
-        self.nums = nums
-        self.n = len(nums)
-        return self.helper(0)
+        return self.helper(nums, 0)
 
 
 class Solution:
     def helper(self, nums, start):
-        print(nums, start, self.steps)
-        if start >= len(nums) - 1:
-            print("reached end")
+        if start >= self.n - 1:
             return 0
-        if self.steps[start + 1] == 0:
+        elif nums[start] <= 0:
+            return float("inf")
+        step = self.getStep(start + 1)
+        if step == 0:
             once = self.helper(nums, start + 1)
-            self.steps[start + 1] = once
+            self.storeStep(start + 1, once)
         else:
-            once = self.steps[start + 1]
-        if self.steps[start + nums[start]] == 0:
-            num = self.helper(nums, start + nums[start])
-            self.steps[start + nums[start]] = num
-        else:
-            num = self.steps[start + nums[start]]
-        return 1 + min(once, num)
+            once = step
+        for i in range(start + 1, start + nums[start] + 1):
+            step = self.getStep(i)
+            if step == 0:
+                num = self.helper(nums, i)
+                self.storeStep(i, num)
+            else:
+                num = step
+            once = min(once, num)
+        return 1 + once
+
+    def getStep(self, step):
+        if step >= self.n - 1:
+            return 0
+        return self.steps[step]
+
+    def storeStep(self, step, val):
+        if step < self.n:
+            self.steps[step] = val
 
     def jump(self, nums: List[int]) -> int:
-        self.steps = [0 for _ in range(len(nums))]
+        self.n = len(nums)
+        self.steps = [0 for _ in range(self.n)]
         return self.helper(nums, 0)
+
+
+solution = Solution()
+nums = [3, 2, 1]
+nums = [4, 1, 1, 3, 1, 1, 1]
+print(solution.jump(nums))
