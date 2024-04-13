@@ -34,8 +34,8 @@ class Solution:
         if len(self.res) > level:
             self.res.append([])
         self.res[level].append(root.val)
-        self.dfs(root.left, level+1)
-        self.dfs(root.right, level+1)
+        self.dfs(root.left, level + 1)
+        self.dfs(root.right, level + 1)
 
     def levelOrder(self, root: TreeNode) -> list[list[int]]:
         self.dfs(root, 0)
@@ -52,15 +52,15 @@ class Solution:
             self.res[level] = [root.val]
         else:
             self.res[level].append(root.val)
-        self.dfs(root.left, level+1)
-        self.dfs(root.right, level+1)
+        self.dfs(root.left, level + 1)
+        self.dfs(root.right, level + 1)
 
     def levelOrder(self, root: TreeNode) -> list[list[int]]:
         self.dfs(root, 0)
         return list(self.res.values())
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     nodes = [1, 2, 2, None, 3, None, 3]
     s = Solution()
     root = constructTree(nodes)

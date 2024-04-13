@@ -5,7 +5,7 @@
  * @param {number[]} verticalCuts
  * @return {number}
  */
-var maxArea = function(h, w, horizontalCuts, verticalCuts) {
+var maxArea = function (h, w, horizontalCuts, verticalCuts) {
   let arr = [];
   for (let tn = 0; tn < h; ++tn) {
     for (let tm = 0; tm < w; ++tm) {
@@ -37,7 +37,7 @@ var maxArea = function(h, w, horizontalCuts, verticalCuts) {
  * @param {number[]} verticalCuts
  * @return {number}
  */
-var maxArea = function(h, w, horizontalCuts, verticalCuts) {
+var maxArea = function (h, w, horizontalCuts, verticalCuts) {
   let arrx = [];
   let arry = [];
   for (let i = 0; i < h; ++i) {

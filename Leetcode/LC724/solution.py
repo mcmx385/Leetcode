@@ -1,9 +1,9 @@
 # does not pass all test cases
 class Solution:
     def pivotIndex(self, nums: List[int]) -> int:
-        nums = [0]+nums
+        nums = [0] + nums
         start = 0
-        end = len(nums)-1
+        end = len(nums) - 1
         leftSum = nums[start]
         rightSum = nums[end]
         start += 1
@@ -11,7 +11,7 @@ class Solution:
         while start <= end:
             print(start, end, nums[start], nums[end], leftSum, rightSum)
             if leftSum == rightSum and start == end:
-                return start-1
+                return start - 1
             if leftSum >= rightSum:
                 rightSum += nums[end]
                 end -= 1

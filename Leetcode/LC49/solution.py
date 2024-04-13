@@ -1,6 +1,6 @@
 class Solution:
     def sortStr(self, string):
-        return ''.join(sorted(string))
+        return "".join(sorted(string))
 
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
         mapping = {}

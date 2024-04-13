@@ -10,7 +10,8 @@ class Solution:
             if mapp[num] == 1:
                 return num
         return -1
-    
+
+
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
         mapp = {}

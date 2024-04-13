@@ -59,15 +59,15 @@ class Solution:
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
         for i in range(len(nums)):
-            if nums not in nums[:i] + nums[i+1:]:
+            if nums not in nums[:i] + nums[i + 1 :]:
                 return nums[i]
 
 
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
         nums.sort()
-        for i in range(0, len(nums)-1, 2):
-            if nums[i] != nums[i+1]:
+        for i in range(0, len(nums) - 1, 2):
+            if nums[i] != nums[i + 1]:
                 return nums[i]
 
 
@@ -81,6 +81,6 @@ class Solution:
 
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
-        for i in range(len(nums)-1):  # time complexity: O(n), space complexity: O(1)
-            nums[i+1] ^= nums[i]
+        for i in range(len(nums) - 1):  # time complexity: O(n), space complexity: O(1)
+            nums[i + 1] ^= nums[i]
         return nums[-1]

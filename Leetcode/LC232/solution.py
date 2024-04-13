@@ -28,11 +28,12 @@ class MyQueue:
     def empty(self) -> bool:
         return len(self.stack) == 0
 
+
 class Node:
     def __init__(self, value) -> None:
         self.val = value
         self.next = None
-        
+
 
 class MyQueue:
     def __init__(self):
@@ -48,7 +49,7 @@ class MyQueue:
             self.tail.next = Node(x)
             self.tail = self.tail.next
         self.size += 1
-    
+
     def pop(self) -> int:
         if not self.head:
             return None
@@ -56,15 +57,16 @@ class MyQueue:
         self.head = self.head.next
         self.size -= 1
         return result
-    
+
     def peek(self) -> int:
         if not self.head:
             return None
         return self.head.val
-    
+
     def empty(self) -> bool:
         return self.size == 0
-    
+
+
 class MyQueue:
     def __init__(self):
         self.stack = deque()
@@ -77,34 +79,33 @@ class MyQueue:
         self.stack.append(x)
         for i in range(n):
             self.stack.append(self.arr.pop())
-    
+
     def pop(self) -> int:
         return self.stack.pop()
-    
+
     def peek(self) -> int:
         return self.stack[-1]
-    
+
     def empty(self) -> bool:
         return len(self.stack) == 0
-    
 
 
 class MyQueue:
     def __init__(self):
-        self.arr=[]
+        self.arr = []
 
     def push(self, x: int) -> None:
         self.arr.append(x)
 
     def pop(self) -> int:
         return self.arr.pop(0)
-    
+
     def peek(self) -> int:
         return self.arr[0]
-    
+
     def empty(self) -> bool:
         return len(self.arr) == 0
-    
+
 
 class MyQueue:
     def __init__(self):
@@ -123,11 +124,11 @@ class MyQueue:
         if not self.arr:
             self.swap()
         return self.arr.pop()
-    
+
     def peek(self) -> int:
         if not self.arr:
             self.swap()
         return self.arr[-1]
-    
+
     def empty(self) -> bool:
         return len(self.stack) == 0 and len(self.arr) == 0

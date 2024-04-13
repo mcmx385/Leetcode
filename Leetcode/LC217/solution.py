@@ -18,7 +18,7 @@ class Solution:
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
         for num in nums:
-            if num in nums[nums.index(num)+1:]:
+            if num in nums[nums.index(num) + 1 :]:
                 return True
         return False
 
@@ -36,8 +36,8 @@ class Solution:
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
         nums = sorted(nums)
-        for i in range(len(nums)-1):
-            if nums[i] == nums[i+1]:
+        for i in range(len(nums) - 1):
+            if nums[i] == nums[i + 1]:
                 return True
         return False
 

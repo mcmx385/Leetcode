@@ -1,29 +1,33 @@
 class Solution:
-    def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
+    def addTwoNumbers(
+        self, l1: Optional[ListNode], l2: Optional[ListNode]
+    ) -> Optional[ListNode]:
         num1 = 0
         num2 = 0
         i = 0
         while l1 != None or l2 != None:
             if l1 != None:
-                num1 += l1.val*(10**i)
+                num1 += l1.val * (10**i)
                 l1 = l1.next
             if l2 != None:
-                num2 += l2.val*(10**i)
+                num2 += l2.val * (10**i)
                 l2 = l2.next
             i += 1
-        num3 = num1+num2
+        num3 = num1 + num2
         l3 = ListNode(num3 % 10)
         tmp = l3
         num3 //= 10
         while num3 != 0:
             tmp.next = ListNode(num3 % 10)
-            num3 = num3//10
+            num3 = num3 // 10
             tmp = tmp.next
         return l3
 
 
 class Solution:
-    def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
+    def addTwoNumbers(
+        self, l1: Optional[ListNode], l2: Optional[ListNode]
+    ) -> Optional[ListNode]:
         l3 = ListNode(0)
         tmp = l3
         carry = 0
@@ -35,7 +39,7 @@ class Solution:
             if l2 != None:
                 total += l2.val
                 l2 = l2.next
-            carry = total//10
+            carry = total // 10
             tmp.next = ListNode(total % 10)
             tmp = tmp.next
         if carry != 0:
@@ -48,7 +52,9 @@ class Solution:
     tmp = l3
     carry = 0
 
-    def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
+    def addTwoNumbers(
+        self, l1: Optional[ListNode], l2: Optional[ListNode]
+    ) -> Optional[ListNode]:
         total = self.carry
         if l1 != None:
             total += l1.val
@@ -57,7 +63,7 @@ class Solution:
         if total == 0 and l1 == None and l2 == None:
             return self.l3.next
 
-        self.carry = total//10
+        self.carry = total // 10
         self.tmp.next = ListNode(total % 10)
         self.tmp = self.tmp.next
 

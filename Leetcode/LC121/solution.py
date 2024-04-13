@@ -1,10 +1,10 @@
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
         profit = 0
-        diff = [(prices[i+1]-prices[i]) for i in range(len(prices)-1)]
+        diff = [(prices[i + 1] - prices[i]) for i in range(len(prices) - 1)]
         for i in range(len(diff)):
             for j in range(i, len(diff)):
-                returns = sum(diff[i:j+1])
+                returns = sum(diff[i : j + 1])
                 if returns > profit:
                     profit = returns
         return profit
@@ -13,9 +13,9 @@ class Solution:
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
         max_profit = 0
-        for i in range(len(prices)-1):
-            for j in range(i+1, len(prices)):
-                profit = prices[j]-prices[i]
+        for i in range(len(prices) - 1):
+            for j in range(i + 1, len(prices)):
+                profit = prices[j] - prices[i]
                 if profit > max_profit:
                     max_profit = profit
         return max_profit
@@ -26,7 +26,7 @@ class Solution:
         min_price = prices[0]
         max_profit = 0
         for price in prices:
-            profit = price-min_price
+            profit = price - min_price
             if profit > max_profit:
                 max_profit = profit
             if min_price > price:
@@ -39,7 +39,7 @@ class Solution:
         min_price = prices[0]
         max_profit = 0
         for price in prices:
-            max_profit = max(max_profit, price-min_price)
+            max_profit = max(max_profit, price - min_price)
             min_price = min(min_price, price)
         return max_profit
 
@@ -50,10 +50,10 @@ class Solution:
         sell = prices[0]
         max_profit = 0
         for price in prices:
-            profit = price-buy
+            profit = price - buy
             if profit > max_profit:
                 max_profit = profit
-            profit = sell-price
+            profit = sell - price
             if profit > max_profit:
                 max_profit = profit
             if buy > price:
@@ -82,9 +82,9 @@ class Solution:
     def maxProfit(self, prices):
         profit = 0
         max_profit = 0
-        diffs = [prices[i+1]-prices[i] for i in range(len(prices)-1)]
+        diffs = [prices[i + 1] - prices[i] for i in range(len(prices) - 1)]
         for diff in diffs:
-            profit = max(0, profit+diff)
+            profit = max(0, profit + diff)
             max_profit = max(max_profit, profit)
         return max_profit
 
@@ -93,8 +93,8 @@ class Solution:
     def maxProfit(self, prices):
         profit = 0
         max_profit = 0
-        for i in range(len(prices)-1):
-            profit = max(0, profit+prices[i+1]-prices[i])
+        for i in range(len(prices) - 1):
+            profit = max(0, profit + prices[i + 1] - prices[i])
             max_profit = max(max_profit, profit)
         return max_profit
 
@@ -106,10 +106,16 @@ class Solution:
         if v[i][k] != -1:
             return v[i][k]
         if buy:
-            v[i][buy] = max(-prices[i]+self.find(prices, i+1, k, not buy, v), self.find(prices, i+1, k, buy, v))
+            v[i][buy] = max(
+                -prices[i] + self.find(prices, i + 1, k, not buy, v),
+                self.find(prices, i + 1, k, buy, v),
+            )
             return v[i][buy]
         else:
-            v[i][buy] = max(prices[i]+self.find(prices, i+1, k-1, not buy, v), self.find(prices, i+1, k, buy, v))
+            v[i][buy] = max(
+                prices[i] + self.find(prices, i + 1, k - 1, not buy, v),
+                self.find(prices, i + 1, k, buy, v),
+            )
             return v[i][buy]
 
     def maxProfit(self, prices):

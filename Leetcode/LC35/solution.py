@@ -15,21 +15,21 @@ class Solution:
     def searchInsert(self, nums: List[int], target: int) -> int:
         start = 0
         end = len(nums)
-        mid = (start+end)//2
-        if target > nums[end-1]:
+        mid = (start + end) // 2
+        if target > nums[end - 1]:
             return end
         if target < nums[start]:
             return start
         while start < end:
             if nums[mid] == target:
-                while mid > 0 and nums[mid-1] == target:
+                while mid > 0 and nums[mid - 1] == target:
                     mid -= 1
                 return mid
             elif nums[mid] > target:
                 end = mid
             else:
-                start = mid+1
-            mid = (start+end)//2
+                start = mid + 1
+            mid = (start + end) // 2
         return mid
 
 
@@ -47,13 +47,13 @@ class Solution:
     def search_insert(self, nums, target, start, end):
         if start == end:
             return start
-        mid = (start+end)//2
+        mid = (start + end) // 2
         if nums[mid] == target:
             return mid
         elif nums[mid] > target:
             return self.search_insert(nums, target, start, mid)
         else:
-            return self.search_insert(nums, target, mid+1, end)
+            return self.search_insert(nums, target, mid + 1, end)
 
     def searchInsert(self, nums: List[int], target: int) -> int:
         return self.search_insert(nums, target, 0, len(nums))

@@ -10,9 +10,9 @@ class Solution:
                     if i < length:
                         strings[row] += s[i]
                         i += 1
-                row = numRows-2
+                row = numRows - 2
             else:
                 strings[row] += s[i]
-                row = (row-1) % numRows
+                row = (row - 1) % numRows
                 i += 1
         return "".join(strings)

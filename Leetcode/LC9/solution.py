@@ -10,15 +10,15 @@ class Solution:
             return False
         reverse = 0
         while x > reverse:
-            reverse = reverse*10+x % 10
+            reverse = reverse * 10 + x % 10
             x //= 10
-        return x == reverse or x == reverse//10
+        return x == reverse or x == reverse // 10
 
 
 class Solution:
     def isPalindrome(self, x: int) -> bool:
         myString = str(x)
-        for i in range(len(myString)//2):
+        for i in range(len(myString) // 2):
             if myString[i] == myString[~i]:
                 continue
             else:
@@ -31,6 +31,6 @@ class Solution:
         p = x
         q = 0
         while p >= 1:
-            q = q*10+p % 10
-            p = p//10
+            q = q * 10 + p % 10
+            p = p // 10
         return q == x

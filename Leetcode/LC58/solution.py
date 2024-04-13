@@ -5,13 +5,13 @@ class Solution:
 
 class Solution:
     def lengthOfLastWord(self, s: str) -> int:
-        j = len(s)-1
-        while j >= 0 and s[j] == ' ':
+        j = len(s) - 1
+        while j >= 0 and s[j] == " ":
             j -= 1
         i = j
-        while i >= 0 and s[i] != ' ':
+        while i >= 0 and s[i] != " ":
             i -= 1
-        return j-i
+        return j - i
 
 
 class Solution:
@@ -19,7 +19,7 @@ class Solution:
         start = False
         count = 0
         for c in s[::-1]:
-            if c != ' ':
+            if c != " ":
                 start = True
                 count += 1
             elif start:
@@ -29,5 +29,5 @@ class Solution:
 class Solution:
     def lengthOfLastWord(self, s: str) -> int:
         s = s.strip()
-        ind = s.rindex(' ') if ' ' in s else -1
-        return len(s)-ind-1
+        ind = s.rindex(" ") if " " in s else -1
+        return len(s) - ind - 1

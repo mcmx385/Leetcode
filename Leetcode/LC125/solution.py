@@ -25,7 +25,7 @@ class Solution:
 
 class Solution:
     def isPalindrome(self, s: str) -> bool:
-        pattern = string.ascii_letters+string.digits
+        pattern = string.ascii_letters + string.digits
         res = ""
         for c in s:
             if c in pattern:
@@ -35,7 +35,7 @@ class Solution:
 
 class Solution:
     def isPalindrome(self, s: str) -> bool:
-        right = len(s)-1
+        right = len(s) - 1
         left = 0
         while left < right:
             if s[left].isalnum() and s[right].isalnum():

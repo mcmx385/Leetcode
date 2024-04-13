@@ -1,6 +1,7 @@
 # keep going see where it can reach farthest
 # consecutive 0s then cannot
 
+
 class Solution:
     def helper(self, nums, start):
         if start == self.n - 1:

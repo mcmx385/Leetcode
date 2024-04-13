@@ -27,7 +27,7 @@ class Solution:
                     queue.append(node.right)
                     still = True
             level += 1
-            sizes.append(len(queue)-sum(sizes))
+            sizes.append(len(queue) - sum(sizes))
         level -= 1
         sizes = sizes[:-1]
         while len(queue) > 0:
@@ -38,7 +38,6 @@ class Solution:
                 res.append(values)
         res = res[::-1]
         return res
-
 
 
 class Solution:
@@ -58,9 +57,8 @@ class Solution:
                 if node.right != None:
                     queue.append(node.right)
             res.append(values)
-        res=res[::-1]
+        res = res[::-1]
         return res
-
 
 
 class Solution:
@@ -72,8 +70,8 @@ class Solution:
         if len(self.res) > level:
             self.res.append([])
         self.res[level].append(root.val)
-        self.dfs(root.left, level+1)
-        self.dfs(root.right, level+1)
+        self.dfs(root.left, level + 1)
+        self.dfs(root.right, level + 1)
 
     def levelOrderBottom(self, root: Optional[TreeNode]) -> List[List[int]]:
         self.dfs(root, 0)
@@ -90,8 +88,8 @@ class Solution:
             self.res[level] = [root.val]
         else:
             self.res[level].append(root.val)
-        self.dfs(root.left, level+1)
-        self.dfs(root.right, level+1)
+        self.dfs(root.left, level + 1)
+        self.dfs(root.right, level + 1)
 
     def levelOrderBottom(self, root: Optional[TreeNode]) -> List[List[int]]:
         self.dfs(root, 0)

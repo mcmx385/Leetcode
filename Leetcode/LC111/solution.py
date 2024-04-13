@@ -6,8 +6,8 @@ class Solution:
         if root == None:
             return 0
         if root.left != None and root.right != None:
-            return 1+min(self.minDepth(root.left), self.minDepth(root.right))
-        return 1+self.minDepth(root.left)+self.minDepth(root.right)
+            return 1 + min(self.minDepth(root.left), self.minDepth(root.right))
+        return 1 + self.minDepth(root.left) + self.minDepth(root.right)
 
 
 class Solution:
@@ -18,8 +18,8 @@ class Solution:
             return
         if root.left == None and root.right == None:
             self.minimum = min(self.minimum, level)
-        self.dfs(root.left, level+1)
-        self.dfs(root.right, level+1)
+        self.dfs(root.left, level + 1)
+        self.dfs(root.right, level + 1)
 
     def minDepth(self, root: Optional[TreeNode]) -> int:
         if root == None:
@@ -42,7 +42,7 @@ class Solution:
                 if node == None:
                     continue
                 if node.left == None and node.right == None:
-                    return minimum+1
+                    return minimum + 1
                 queue.append(node.left)
                 queue.append(node.right)
             minimum += 1

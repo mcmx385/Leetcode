@@ -4,8 +4,11 @@
 #         self.val = x
 #         self.next = None
 
+
 class Solution:
-    def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> Optional[ListNode]:
+    def getIntersectionNode(
+        self, headA: ListNode, headB: ListNode
+    ) -> Optional[ListNode]:
         tempA = headA
         tempB = headB
         while tempA != tempB:
@@ -35,7 +38,9 @@ class Solution:
 
 
 class Solution:
-    def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> Optional[ListNode]:
+    def getIntersectionNode(
+        self, headA: ListNode, headB: ListNode
+    ) -> Optional[ListNode]:
         tempA = headA
         tempB = headB
         while tempA != tempB:
@@ -45,7 +50,9 @@ class Solution:
 
 
 class Solution:
-    def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> Optional[ListNode]:
+    def getIntersectionNode(
+        self, headA: ListNode, headB: ListNode
+    ) -> Optional[ListNode]:
         lengA = 0
         tempA = headA
         while tempA:
@@ -57,10 +64,10 @@ class Solution:
             lengB += 1
             tempB = tempB.next
         if lengA > lengB:
-            for i in range(lengA-lengB):
+            for i in range(lengA - lengB):
                 headA = headA.next
         else:
-            for i in range(lengB-lengA):
+            for i in range(lengB - lengA):
                 headB = headB.next
         while headA != headB:
             headA = headA.next
@@ -73,7 +80,9 @@ class Solution:
 
 
 class Solution:
-    def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> Optional[ListNode]:
+    def getIntersectionNode(
+        self, headA: ListNode, headB: ListNode
+    ) -> Optional[ListNode]:
         arr = []
         tempA = headA
         while tempA:
@@ -88,7 +97,9 @@ class Solution:
 
 
 class Solution:
-    def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> Optional[ListNode]:
+    def getIntersectionNode(
+        self, headA: ListNode, headB: ListNode
+    ) -> Optional[ListNode]:
         while headB:
             tempA = headA
             while tempA:

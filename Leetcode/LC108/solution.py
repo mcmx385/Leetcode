@@ -14,7 +14,7 @@ class Solution:
         mid = len(nums) // 2
         root = TreeNode(nums[mid])
         root.left = self.insert(root.left, nums[:mid])
-        root.right = self.insert(root.right, nums[mid+1:])
+        root.right = self.insert(root.right, nums[mid + 1 :])
         return root
 
     def sortedArrayToBST(self, nums: list[int]) -> TreeNode:
@@ -29,13 +29,13 @@ class Solution:
             return None
         mid = (start + end) // 2
         root = TreeNode(self.nums[mid])
-        root.left = self.insert(root.left, start, mid-1)
-        root.right = self.insert(root.right, mid+1, end)
+        root.left = self.insert(root.left, start, mid - 1)
+        root.right = self.insert(root.right, mid + 1, end)
         return root
 
     def sortedArrayToBST(self, nums: list[int]) -> TreeNode:
         self.nums = nums
-        return self.insert(None, 0, len(nums)-1)
+        return self.insert(None, 0, len(nums) - 1)
 
 
 def printTree(root):
@@ -44,15 +44,15 @@ def printTree(root):
         size = len(queue)
         for i in range(size):
             node = queue.pop(0)
-            print(node.val, end=' ')
+            print(node.val, end=" ")
             if node.left:
                 queue.append(node.left)
             if node.right:
                 queue.append(node.right)
-        print('\n')
+        print("\n")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     nums = [-10, -3, 0, 5, 9]
     root = Solution().sortedArrayToBST(nums)
     printTree(root)

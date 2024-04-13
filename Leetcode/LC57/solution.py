@@ -17,7 +17,8 @@ class Solution:
                 continue  # repeat this i after removing the next interval
             i += 1
         return intervals
-    
+
+
 class Solution:
     def insert(
         self, intervals: List[List[int]], newInterval: List[int]

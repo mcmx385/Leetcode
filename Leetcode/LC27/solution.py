@@ -15,7 +15,7 @@ class Solution:
         j = len(nums)
         while i < j:
             if nums[i] == val:
-                nums[i] = nums[j-1]
+                nums[i] = nums[j - 1]
                 j -= 1
             else:
                 i += 1
@@ -28,11 +28,11 @@ class Solution:
         j = len(nums)
         while i < j:
             if nums[i] == val:
-                nums[i] = nums[j-1]
+                nums[i] = nums[j - 1]
                 j -= 1
             else:
                 if val in nums:
-                    ind = nums.index(val, i+1)
+                    ind = nums.index(val, i + 1)
                     i = j if ind >= j else ind
                 else:
                     i = j

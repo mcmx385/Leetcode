@@ -9,11 +9,11 @@ class Solution
      */
     function searchInsert($nums, $target)
     {
-        if ($pos = array_search($target, $nums)) :
+        if ($pos = array_search($target, $nums)):
             return $pos;
-        else :
-            for ($i = 0; $i < count($nums); $i++) :
-                if ($nums[$i] >= $target) :
+        else:
+            for ($i = 0; $i < count($nums); $i++):
+                if ($nums[$i] >= $target):
                     return $i;
                 endif;
             endfor;

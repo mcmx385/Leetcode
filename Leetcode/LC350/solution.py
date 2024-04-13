@@ -92,11 +92,13 @@ class Solution:
         result = []
         i = 0
         j = 0
-        mapp1_keys= list(mapp1.keys())
+        mapp1_keys = list(mapp1.keys())
         mappp2_keys = list(mapp2.keys())
         while i < len(mapp1) and j < len(mapp2):
             if mapp1_keys[i] == mappp2_keys[j]:
-                result.extend([mapp1_keys[i]] * min(mapp1[mapp1_keys[i]], mapp2[mappp2_keys[j]]))
+                result.extend(
+                    [mapp1_keys[i]] * min(mapp1[mapp1_keys[i]], mapp2[mappp2_keys[j]])
+                )
                 i += 1
                 j += 1
             elif mapp1_keys[i] < mappp2_keys[j]:

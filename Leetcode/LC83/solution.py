@@ -19,7 +19,6 @@ class Solution:
         return head
 
 
-
 class Solution:
     def deleteDuplicates(self, head: list[ListNode]) -> list[ListNode]:
         curr = head
@@ -29,6 +28,7 @@ class Solution:
             curr = curr.next
         return head
 
+
 class Solution:
     def deleteDuplicates(self, head: list[ListNode]) -> list[ListNode]:
         if head == None or head.next == None:
@@ -37,6 +37,7 @@ class Solution:
         if head.val == head.next.val:
             return head.next
         return head
+
 
 def printList(head):
     while head != None:
